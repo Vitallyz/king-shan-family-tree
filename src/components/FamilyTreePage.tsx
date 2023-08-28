@@ -31,7 +31,7 @@ const FamilyTreePage = (): JSX.Element => {
   const [resolvedMembers, setResolvedMembers] = useState<Person[] | null>(null);
 
   useEffect(() => {
-    fetch('/family-data.json')
+    fetch('%PUBLIC_URL%/family-data.json')
       .then(async (response) => await response.json())
       .then((data) => {
         const familyTree = new FamilyTree();
