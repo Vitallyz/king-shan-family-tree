@@ -7,6 +7,9 @@ Inputs of the app are the member and relationship in question.
 
 Output is a list of member's relatives.   
 
+## Download zip file of the project
+[problem1.zip](https://github.com/Vitallyz/king-shan-family-tree/archive/refs/heads/problem1.zip)
+
 ## To install locally and run in dev mode:
 Clone the repository.
 ### `yarn install`
