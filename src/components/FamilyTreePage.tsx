@@ -31,7 +31,13 @@ const FamilyTreePage = (): JSX.Element => {
   const [resolvedMembers, setResolvedMembers] = useState<Person[] | null>(null);
 
   useEffect(() => {
-    fetch('%PUBLIC_URL%/family-data.json')
+    fetch(
+      `${
+        process.env.NODE_ENV === 'production'
+          ? process.env.REACT_APP_WEBSITE_URL
+          : './king-shan-family-tree'
+      }/family-data.json`
+    )
       .then(async (response) => await response.json())
       .then((data) => {
         const familyTree = new FamilyTree();
@@ -83,7 +89,11 @@ const FamilyTreePage = (): JSX.Element => {
               component='img'
               width='100%'
               alt='Family Tree Ref Image'
-              src='./ftref.png'
+              src={`${
+                process.env.NODE_ENV === 'production'
+                  ? process.env.REACT_APP_WEBSITE_URL
+                  : './king-shan-family-tree'
+              }/ftref.png`}
             />
           </AccordionDetails>
         </Accordion>
