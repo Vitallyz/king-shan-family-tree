@@ -30,13 +30,16 @@ const FamilyTreePage = (): JSX.Element => {
     useState<Relationship | null>(null);
   const [resolvedMembers, setResolvedMembers] = useState<Person[] | null>(null);
 
+  const production: boolean =
+    !process.env.NODE_ENV || process.env.NODE_ENV === 'production';
+
   useEffect(() => {
     fetch(
       `${
-        process.env.NODE_ENV === 'production'
-          ? process.env.REACT_APP_WEBSITE_URL
-          : './king-shan-family-tree'
-      }/family-data.json`
+        production
+          ? 'family-data.json'
+          : 'king-shan-family-tree/family-data.json'
+      }`
     )
       .then(async (response) => await response.json())
       .then((data) => {
@@ -49,7 +52,7 @@ const FamilyTreePage = (): JSX.Element => {
         console.error('Error fetching family tree data: ', error);
         setLoading(false);
       });
-  }, []);
+  }, [production]);
 
   useEffect(() => {
     if (!loading && familyTree !== undefined) {
@@ -90,10 +93,10 @@ const FamilyTreePage = (): JSX.Element => {
               width='100%'
               alt='Family Tree Ref Image'
               src={`${
-                process.env.NODE_ENV === 'production'
-                  ? process.env.REACT_APP_WEBSITE_URL
-                  : './king-shan-family-tree'
-              }/ftref.png`}
+                production
+                  ? 'ftref.png'
+                  : 'king-shan-family-tree/ftref.png'
+              }`}
             />
           </AccordionDetails>
         </Accordion>
