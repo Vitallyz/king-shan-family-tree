@@ -251,11 +251,45 @@ describe('Family Tree Realationships', () => {
   it('should be able to find paternal aunts if any exist on record', () => {
     expect(
       familyTree.getMembersByRelationship('Vila', 'Paternal aunts')
-    ).toEqual([
-      familyTree.findMember('Satya'),
-    ]);
+    ).toEqual([familyTree.findMember('Satya')]);
     expect(
       familyTree.getMembersByRelationship('Driya', 'Paternal aunts')
     ).toEqual([]);
+  });
+
+  it('should be able to find maternal aunts if any exist on record', () => {
+    // current femily tree data set does not have any person that have a maternal aunt (no sisters with dauters)
+    expect(
+      familyTree.getMembersByRelationship('Driya', 'Maternal aunts')
+    ).toEqual([]);
+  });
+
+  it('should be able to find brothers-in-law if any exist on record', () => {
+    expect(
+      familyTree.getMembersByRelationship('Ambi', 'Brothers-in-law')
+    ).toEqual([familyTree.findMember('Ish'), familyTree.findMember('Vich')]);
+    expect(
+      familyTree.getMembersByRelationship('Jnki', 'Brothers-in-law')
+    ).toEqual([]);
+  });
+
+  it('should be able to find sisters-in-law if any exist on record', () => {
+    expect(
+      familyTree.getMembersByRelationship('Lika', 'Sisters-in-law')
+    ).toEqual([familyTree.findMember('Satya')]);
+    expect(
+      familyTree.getMembersByRelationship('Jata', 'Sisters-in-law')
+    ).toEqual([]);
+  });
+
+  it('should be able to find cousins if any exist on record', () => {
+    expect(familyTree.getMembersByRelationship('Drita', 'Cousins')).toEqual([
+      familyTree.findMember('Vila'),
+      familyTree.findMember('Chika'),
+      familyTree.findMember('Satvy'),
+      familyTree.findMember('Savya'),
+      familyTree.findMember('Saayan'),
+    ]);
+    expect(familyTree.getMembersByRelationship('Jata', 'Cousins')).toEqual([]);
   });
 });
