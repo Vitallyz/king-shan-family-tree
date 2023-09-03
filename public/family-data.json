@@ -50,7 +50,7 @@
   },
   {
     "name": "Lika",
-    "gender": "famale",
+    "gender": "female",
     "spouse": "Vich",
     "parents": [],
     "children": ["Vila", "Chika"]

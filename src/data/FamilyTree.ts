@@ -197,7 +197,7 @@ class FamilyTree {
       gender: Gender;
       spouse: string | null;
       children: string[];
-      parents: Person[];
+      parents: string[];
     }>
   ): void {
     const personMap = new Map<string, Person>();
