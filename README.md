@@ -18,3 +18,5 @@ Clone the repository.
 ### `yarn install`
 ### `yarn start`
 
+Run tests with
+### `yarn test`
