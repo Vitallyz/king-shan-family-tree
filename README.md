@@ -20,3 +20,4 @@ Clone the repository.
 
 Run tests with
 ### `yarn test`
+then option a to run all tests. 
